@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\BattleMoves">
+      <UniqueIdentifier>{3a69d271-6473-47bf-9674-32ae1ff3c435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\BattleMoveEffects">
+      <UniqueIdentifier>{9fe199ee-f12d-4817-82dd-f2ebe4068dc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Weathers">
+      <UniqueIdentifier>{1df20e38-b39b-486f-8e90-cceb11bbf5e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\BattleMoves">
+      <UniqueIdentifier>{13fffb28-a960-4e3a-8782-118e3f6ac4b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\BattleMoveEffects">
+      <UniqueIdentifier>{c223a9f6-7782-4de6-a6d3-cc0fb052c55f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Weathers">
+      <UniqueIdentifier>{21480f11-3f4f-4c1e-8af1-cc0206797047}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AllTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleOutput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PokemonCharacter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Stats.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StatusCondition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestFrameWork.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Trainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Type.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleMove.h">
+      <Filter>Header Files\BattleMoves</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageMove.h">
+      <Filter>Header Files\BattleMoves</Filter>
+    </ClInclude>
+    <ClInclude Include="MultipleTurnMove.h">
+      <Filter>Header Files\BattleMoves</Filter>
+    </ClInclude>
+    <ClInclude Include="HiddenMove.h">
+      <Filter>Header Files\BattleMoves</Filter>
+    </ClInclude>
+    <ClInclude Include="HealingMove.h">
+      <Filter>Header Files\BattleMoves</Filter>
+    </ClInclude>
+    <ClInclude Include="StatusMove.h">
+      <Filter>Header Files\BattleMoves</Filter>
+    </ClInclude>
+    <ClInclude Include="StatusConditionMove.h">
+      <Filter>Header Files\BattleMoves</Filter>
+    </ClInclude>
+    <ClInclude Include="WeatherChangingMove.h">
+      <Filter>Header Files\BattleMoves</Filter>
+    </ClInclude>
+    <ClInclude Include="ChargeMove.h">
+      <Filter>Header Files\BattleMoves</Filter>
+    </ClInclude>
+    <ClInclude Include="RechargeMove.h">
+      <Filter>Header Files\BattleMoves</Filter>
+    </ClInclude>
+    <ClInclude Include="StatsChangingMove.h">
+      <Filter>Header Files\BattleMoves</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleMoveEffects.h">
+      <Filter>Header Files\BattleMoveEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="StatusConditionEffect.h">
+      <Filter>Header Files\BattleMoveEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="StatChangingEffect.h">
+      <Filter>Header Files\BattleMoveEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageWeather.h">
+      <Filter>Header Files\Weathers</Filter>
+    </ClInclude>
+    <ClInclude Include="AllWeathers.h">
+      <Filter>Header Files\Weathers</Filter>
+    </ClInclude>
+    <ClInclude Include="Weather.h">
+      <Filter>Header Files\Weathers</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangePowerWeather.h">
+      <Filter>Header Files\Weathers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PokemonCharacter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Stats.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StatusCondition.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestFrameWork.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Trainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Type.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BatttleMove.cpp">
+      <Filter>Source Files\BattleMoves</Filter>
+    </ClCompile>
+    <ClCompile Include="ChargeMove.cpp">
+      <Filter>Source Files\BattleMoves</Filter>
+    </ClCompile>
+    <ClCompile Include="DamageMove.cpp">
+      <Filter>Source Files\BattleMoves</Filter>
+    </ClCompile>
+    <ClCompile Include="StatusMove.cpp">
+      <Filter>Source Files\BattleMoves</Filter>
+    </ClCompile>
+    <ClCompile Include="HiddenMove.cpp">
+      <Filter>Source Files\BattleMoves</Filter>
+    </ClCompile>
+    <ClCompile Include="HealingMove.cpp">
+      <Filter>Source Files\BattleMoves</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleTurnMove.cpp">
+      <Filter>Source Files\BattleMoves</Filter>
+    </ClCompile>
+    <ClCompile Include="RechargeMove.cpp">
+      <Filter>Source Files\BattleMoves</Filter>
+    </ClCompile>
+    <ClCompile Include="StatsChangingMove.cpp">
+      <Filter>Source Files\BattleMoves</Filter>
+    </ClCompile>
+    <ClCompile Include="StatusConditionMove.cpp">
+      <Filter>Source Files\BattleMoves</Filter>
+    </ClCompile>
+    <ClCompile Include="WeatherChangingMove.cpp">
+      <Filter>Source Files\BattleMoves</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleMoveEffects.cpp">
+      <Filter>Source Files\BattleMoveEffects</Filter>
+    </ClCompile>
+    <ClCompile Include="StatusConditionEffect.cpp">
+      <Filter>Source Files\BattleMoveEffects</Filter>
+    </ClCompile>
+    <ClCompile Include="StatChangingEffect.cpp">
+      <Filter>Source Files\BattleMoveEffects</Filter>
+    </ClCompile>
+    <ClCompile Include="DamageWeather.cpp">
+      <Filter>Source Files\Weathers</Filter>
+    </ClCompile>
+    <ClCompile Include="Weather.cpp">
+      <Filter>Source Files\Weathers</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleOutput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangePowerWeather.cpp">
+      <Filter>Source Files\Weathers</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
