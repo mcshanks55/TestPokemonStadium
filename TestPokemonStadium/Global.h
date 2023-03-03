@@ -25,12 +25,17 @@ namespace PokemonStadium {
 
    static const string RECHARGE_DESCRIPTION = "needs to recharge";
 
+   static const int NO_PRIORTY = 0;
+   static const int LOWEST_PRIORTY = 1;
+   static const int HIGHEST_PRIORITY = 5;
+
    // calculate the damage the pokemon will recieve from the attack, base of the
    // attacking damage move type stat of the attacking Pokemon and defending Pokemon
    // defenisve damage move type stat times the power of the attack
    static const int 
-   calculatePureDamage(int attackPower, int attackingStat, int defendingStat) {
-      int pureDamage = (int)(((SET_LV_CALC * attackPower * (attackingStat / defendingStat)) / 50));
+   calculatePureDamage(int attackPower, double attackingStat, double defendingStat) {
+      double stat_calc = (double)(attackingStat / defendingStat);
+      int pureDamage = (int)(((SET_LV_CALC * attackPower * stat_calc) / 50));
       // reutrn 1 if pureDamage is less than 1
       if (pureDamage < 1)
          return 1;

@@ -27,7 +27,7 @@ namespace PokemonStadium
       BattleMove();
       BattleMove(ConsoleOutput *out,
          string name, Type type, string category, int pp, int power, int accuracy,
-         string description, int priorty = 0);
+         string description, int priorty = LOWEST_PRIORTY);
       // memeber functions
       ConsoleOutput *getConsoleOutput();
       string getName() const;

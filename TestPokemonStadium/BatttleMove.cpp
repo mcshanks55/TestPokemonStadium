@@ -17,6 +17,7 @@ PokemonStadium::BattleMove::BattleMove(){
    this->power = 0;
    this->accuracy = 0;
    this->description = "";
+   this->priority = LOWEST_PRIORTY;
    this->moveLocked = false;
 }
 

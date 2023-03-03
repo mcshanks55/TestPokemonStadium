@@ -531,7 +531,7 @@ void TestStatusCondition_Confusion() {
          pokemonStatusCondition.setConfusion();
       }
    }
-   TEST_ASSERT(283 == test2.getCurrentHeath());
+   TEST_ASSERT(282 == test2.getCurrentHeath());
    delete co;
    TestFramework::EndTest();
 }
@@ -577,7 +577,7 @@ void TestDamageMove_DamageMoveNoExtras() {
    TEST_ASSERT(!test1.isMovedLocked());
    // check results after using battle move
    TEST_ASSERT(14 == test1.getCurrentPP());
-   TEST_ASSERT(56 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
+   TEST_ASSERT(55 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
    TEST_ASSERT(79 == attackingPOKEMONSTADIUM_stats.getCurrentHeath());
    delete co;
    TestFramework::EndTest();
@@ -611,7 +611,7 @@ void TestDamageMove_DamageMoveSelfDamage() {
       &attackingPOKEMONSTADIUM_stats, &attackingPokemonStatusCondition, type_water, Type(),
       &defendingPOKEMONSTADIUM_stats, &defendingPokemonStatusCondition, type_fire, type_dark);
    TEST_ASSERT(14 == test1.getCurrentPP());
-   TEST_ASSERT(56 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
+   TEST_ASSERT(55 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
    TEST_ASSERT(74 == attackingPOKEMONSTADIUM_stats.getCurrentHeath());
    delete co;
    TestFramework::EndTest();
@@ -813,7 +813,7 @@ void TestChargeMove_ChargeMoveNoExtras() {
       &attackingPOKEMONSTADIUM_stats, &attackingPokemonStatusCondition, type_ground, type_rock,
       &defendingPOKEMONSTADIUM_stats, &defendingPokemonStatusCondition, type_rock, Type());
    TEST_ASSERT(9 == test1.getCurrentPP());
-   TEST_ASSERT(26 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
+   TEST_ASSERT(22 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
    TEST_ASSERT(!test1.isMovedLocked());
    delete co;
    TestFramework::EndTest();
@@ -1044,7 +1044,7 @@ void TestHiddenMove_UseMove() {
    test2.useDamageMove(&clear_skies,
       &defendingPOKEMONSTADIUM_stats, &defendingPokemonStatusCondition, type_steel, type_rock,
       &attackingPOKEMONSTADIUM_stats, &attackingPokemonStatusCondition, type_rock, Type());
-   TEST_ASSERT(79 == attackingPOKEMONSTADIUM_stats.getCurrentHeath());
+   TEST_ASSERT(70 == attackingPOKEMONSTADIUM_stats.getCurrentHeath());
    delete co;
    TestFramework::EndTest();
 }
@@ -1085,14 +1085,14 @@ void TestRechargeMove_Move() {
       &attackingPOKEMONSTADIUM_stats, &attackingPokemonStatusCondition, type_rock, Type(),
       &defendingPOKEMONSTADIUM_stats, &defendingPokemonStatusCondition, type_steel, type_rock);
    TEST_ASSERT(4 == test1.getCurrentPP());
-   TEST_ASSERT(29 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
+   TEST_ASSERT(26 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
    TEST_ASSERT(test1.isMovedLocked());
    // use move, pokemon must recharge
    test1.useRechargeMove(&clear_skies,
       &attackingPOKEMONSTADIUM_stats, &attackingPokemonStatusCondition, type_ground, type_rock,
       &defendingPOKEMONSTADIUM_stats, &defendingPokemonStatusCondition, type_rock, Type());
    TEST_ASSERT(4 == test1.getCurrentPP());
-   TEST_ASSERT(29 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
+   TEST_ASSERT(26 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
    TEST_ASSERT(!test1.isMovedLocked());
    delete co;
    TestFramework::EndTest();
@@ -1125,14 +1125,14 @@ void TestHealingMove_HealingMoveNoExtra() {
    attackMove.useDamageMove(&clear_skies,
       &attackingPOKEMONSTADIUM_stats, &attackingPokemonStatusCondition, type_psychic, Type(),
       &defendingPOKEMONSTADIUM_stats, &defendingPokemonStatusCondition, type_ghost, type_fairy);
-   TEST_ASSERT(45 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
+   TEST_ASSERT(44 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
    TEST_ASSERT(79 == attackingPOKEMONSTADIUM_stats.getCurrentHeath());
    // use move, damaged pokemon heals
    test1.useHealMove(&clear_skies,
       &defendingPOKEMONSTADIUM_stats,
       &attackingPOKEMONSTADIUM_stats
       );
-   TEST_ASSERT(52 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
+   TEST_ASSERT(51 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
    TEST_ASSERT(14 == test1.getCurrentPP());
    TEST_ASSERT(!test1.isMovedLocked());
    delete co;
@@ -1163,33 +1163,33 @@ void TestHealingMove_HealingMoveWeatherChanges() {
    attackMove.useDamageMove(&clear_skies,
       &attackingPOKEMONSTADIUM_stats, &attackingPokemonStatusCondition, type_psychic, Type(),
       &defendingPOKEMONSTADIUM_stats, &defendingPokemonStatusCondition, type_ghost, type_fairy);
-   TEST_ASSERT(45 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
+   TEST_ASSERT(44 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
    TEST_ASSERT(79 == attackingPOKEMONSTADIUM_stats.getCurrentHeath());
    // heal damaged pokemon in rain, see that healing is lower
    test1.useHealMove(&rain,
       &defendingPOKEMONSTADIUM_stats,
       &attackingPOKEMONSTADIUM_stats
    );
-   TEST_ASSERT(52 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
+   TEST_ASSERT(51 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
    TEST_ASSERT(14 == test1.getCurrentPP());
    // heal damaged pokemon in rain, see that healing is normal
    test1.useHealMove(&clear_skies,
       &defendingPOKEMONSTADIUM_stats,
       &attackingPOKEMONSTADIUM_stats
    );
-   TEST_ASSERT(67 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
+   TEST_ASSERT(66 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
    TEST_ASSERT(13 == test1.getCurrentPP());
    // damage pokemon
    attackMove.useDamageMove(&clear_skies,
       &attackingPOKEMONSTADIUM_stats, &attackingPokemonStatusCondition, type_psychic, Type(),
       &defendingPOKEMONSTADIUM_stats, &defendingPokemonStatusCondition, type_ghost, type_fairy);
-   TEST_ASSERT(34 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
+   TEST_ASSERT(32 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
    // heal damaged pokemon in rain, see that healing is more
    test1.useHealMove(&harsh_sun,
       &defendingPOKEMONSTADIUM_stats,
       &attackingPOKEMONSTADIUM_stats
    );
-   TEST_ASSERT(65 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
+   TEST_ASSERT(63 == defendingPOKEMONSTADIUM_stats.getCurrentHeath());
    TEST_ASSERT(12 == test1.getCurrentPP());
    delete co;
    TestFramework::EndTest();
@@ -1726,7 +1726,7 @@ void TestTrainer_Settings() {
 
 
 void TestTrainer_UsingPokemonOutBattleMoves() {
-   TestFramework::BeginTest("Test PokemonCharacter: Using Pokemon Out's Battle Moves");
+   TestFramework::BeginTest("Test Trainer: Using Pokemon Out's Battle Moves");
    stringstream ss;
    ConsoleOutput *co = new ConsoleOutput(ss, "User", "Opp");
    Trainer *trainer1 = new Trainer(co, "test1", ("Trainer 1"));
@@ -1805,8 +1805,8 @@ void TestTrainer_UsingPokemonOutBattleMoves() {
       trainer1PokemonCharacter->getStatusCondition(), trainer1PokemonCharacter->getPrimaryType(),
       trainer1PokemonCharacter->getSecondaryType());
    TEST_ASSERT(trainer2->getPokemonInBattle()->getBattleMoveBySlot(battleMoveSlot)->getCurrentPP() == 14);
-   TEST_ASSERT(trainer1PokemonCharacter->getStats()->getCurrentHeath() == 93);
-   TEST_ASSERT(trainer1->getPokemonInBattle()->getStats()->getCurrentHeath() == 93);
+   TEST_ASSERT(trainer1PokemonCharacter->getStats()->getCurrentHeath() == 39);
+   TEST_ASSERT(trainer1->getPokemonInBattle()->getStats()->getCurrentHeath() == 39);
    delete lower_defense_80;
    delete paralyzed_30;
    delete trainer1;
@@ -1819,7 +1819,7 @@ void TestTrainer_UsingPokemonOutBattleMoves() {
 }
 
 void TestTrainer_UserActionSwitchOut() {
-   TestFramework::BeginTest("Test PokemonCharacter: Using Pokemon Out's Battle Moves");
+   TestFramework::BeginTest("Test Trainer: Switching Out Pokemon Battling");
    stringstream ss;
    ConsoleOutput *co = new ConsoleOutput(ss, "User", "Opp");
    Trainer *trainer1 = new Trainer(co, "test1", ("Trainer 1"));
@@ -1902,11 +1902,90 @@ void TestTrainer_UserActionSwitchOut() {
 }
 
 void TestTrainer_PokemonOutFainted() {
-
+   TestFramework::BeginTest("Test Trainer: Pokemon Out Fainted");
+   stringstream ss;
+   ConsoleOutput *co = new ConsoleOutput(ss, "User", "Opp");
+   Trainer *trainer1 = new Trainer(co, "test1", ("Trainer 1"));
+   TEST_ASSERT("test1" == trainer1->getId());
+   TEST_ASSERT("Trainer 1" == trainer1->getName());
+   Trainer *trainer2 = new Trainer(co, "test2", ("Trainer 2"));
+   TEST_ASSERT("test2" == trainer2->getId());
+   TEST_ASSERT("Trainer 2" == trainer2->getName());
+   // create 4 battle moves for the Pokemon character 1
+   DamageMove char1BattleMove1 = DamageMove(co, "1 hit ko", type_electric, "special", 15, 150, 100, "should kill pokemon after used");
+   ChargeMove char1BattleMove2 = ChargeMove(co, "dark charge", type_dark, "physical", 10, 120, 100, "test2 move", "charge");
+   StatsChangingMove char1BattleMove3 = StatsChangingMove(co, "nasty plot", type_dark, 15, 100, "test3 move", {"special attack"}, {"rose sharply"}, {true});
+   StatusConditionMove char1BattleMove4 = StatusConditionMove(co, "poison", type_poison, 15, 100, "test4 move", "poison");
+   // Character 1, type electric
+   // set the Pokemon character with the above battle moves
+   PokemonCharacter *character1 = new PokemonCharacter(co, "character 1", type_electric,
+      95, 65, 110, 130, 130, 60,
+      &char1BattleMove1, &char1BattleMove2, &char1BattleMove3, &char1BattleMove4,
+      "");
+   // create 4 battle moves for the Pokemon character 2
+   WeatherChangingMove char2BattleMove1 = WeatherChangingMove(co, "hail", type_ice, 15, "test1 move", &hail);
+   HealingMove char2BattleMove2 = HealingMove(co, "recover", type_normal, 15, 100, "test2 move", .1);
+   RechargeMove char2BattleMove3 = RechargeMove(co, "rock hyperbeam", type_rock, "special", 5, 150, 100, "test3 move");
+   HiddenMove char2BattleMove4 = HiddenMove(co, "dive", type_water, "physical", 10, 80, 100, "test4 move", "dove underwater");
+   // Character 2, type water Flying
+   // set the Pokemon character with the above battle moves
+   PokemonCharacter *character2 = new PokemonCharacter(co, "character 2", type_water,
+      90, 85, 95, 100, 125, 85,
+      &char2BattleMove1, &char2BattleMove2, &char2BattleMove3, &char2BattleMove4,
+      "",
+      type_flying);
+   // create 4 battle moves for the Pokemon character 2
+   StatChangingEffect *lower_defense_80 = new StatChangingEffect(co, 80, {"defense"}, {"fell"}, {false});
+   StatsChangingMove char3BattleMove1 = StatsChangingMove(co, "special growl", type_electric, 15, 100,
+      "lowers targets special defense",
+      {"special defense"}, {"fell"}, {false});
+   DamageMove char3BattleMove2 = DamageMove(co, "iron tail", type_steel, "physical", 15, 100, 100,
+      "test2 move",
+      lower_defense_80);
+   StatusConditionEffect *paralyzed_30 = new StatusConditionEffect(co, 30, "paralyzed");
+   DamageMove char3BattleMove3 = DamageMove(co, "thunder", type_electric, "special", 10, 110, 70,
+      "test3 move",
+      paralyzed_30,
+      {rain}, {1000});
+   DamageMove char3BattleMove4 = DamageMove(co, "quick attack", type_normal, "physical", 10, 40, 100, "test4 move", 1);
+   // Character 3, type Electric
+   // set the Pokemon character with the above battle moves
+   PokemonCharacter *character3 = new PokemonCharacter(co, "character 3", type_electric,
+      90, 85, 95, 100, 125, 85,
+      &char3BattleMove1, &char3BattleMove2, &char3BattleMove3, &char3BattleMove4,
+      "");
+   // add pokemon to trainers
+   trainer1->addPokemonToParty(character1);
+   trainer1->addPokemonToParty(character2);
+   trainer1->addPokemonToParty(character3);
+   trainer2->addPokemonToParty(character1);
+   trainer2->addPokemonToParty(character2);
+   trainer2->addPokemonToParty(character3);
+   // set trainers battle parties
+   trainer1->setBattleParty({0, 1, 2});
+   trainer2->setBattleParty({1, 2, 0});
+   Weather *battleWeather = new Weather();
+   // use a move that should make trainer 2 pokemon faint
+   trainer1->usePokemonInBattleBattleMove(0, &battleWeather, trainer1->getName(),
+      trainer2->getPokemonInBattle()->getName(), trainer2->getPokemonInBattle()->getStats(),
+      trainer2->getPokemonInBattle()->getStatusCondition(), trainer2->getPokemonInBattle()->getPrimaryType(),
+      trainer2->getPokemonInBattle()->getSecondaryType());
+   // Trainer 2 pokemon should have fainted
+   TEST_ASSERT(trainer2->hasPokemonOutHasFainted());
+   delete lower_defense_80;
+   delete paralyzed_30;
+   delete trainer1;
+   delete trainer2;
+   delete character1;
+   delete character2;
+   delete character3;
+   delete battleWeather;
+   TestFramework::EndTest();
 }
 
 void PokemonStadium::TestTrainer() {
    TestTrainer_Settings();
    TestTrainer_UsingPokemonOutBattleMoves();
    TestTrainer_UserActionSwitchOut();
+   TestTrainer_PokemonOutFainted();
 }

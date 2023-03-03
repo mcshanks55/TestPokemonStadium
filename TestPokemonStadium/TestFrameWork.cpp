@@ -2,7 +2,7 @@
 * Pokemon
 *
 * TestFramework.cpp
-*
+* Used for Unit Testing
 */
 
 #include <iostream>

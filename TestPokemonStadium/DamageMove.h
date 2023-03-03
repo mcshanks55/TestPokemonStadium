@@ -28,7 +28,7 @@ namespace PokemonStadium
    // no extra effect; Only one that can change priorty
    DamageMove(ConsoleOutput *out,
       string name, Type type, string category, int pp, int power, int accuracy, string description,
-      int priorty = 0);
+      int priorty = NO_PRIORTY);
 
    // Self Damage move decides if self damage should be taken by userDamage or base on health
    DamageMove(ConsoleOutput *out,

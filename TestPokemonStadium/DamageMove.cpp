@@ -35,7 +35,8 @@ PokemonStadium::DamageMove::DamageMove(ConsoleOutput *out,
 // Constructor for Damage Move with selfDamage
 // set name, type, category, pp, power, accuracy, description and priority with battle move
 PokemonStadium::DamageMove::DamageMove(ConsoleOutput *out,
-   string name, Type type, string category, int pp, int power, int accuracy, string description,
+   string name, Type type, string category, int pp, int power, 
+   int accuracy, string description,
    bool selfDamageBaseOnDamage, double selfDamagePercent) : 
    BattleMove(out, name, type, category, pp, power, accuracy, description) {
    this->selfDamageBaseOnDamage = selfDamageBaseOnDamage;
@@ -257,7 +258,7 @@ PokemonStadium::DamageMove::calculateDamages(Weather *battleWeather,
 
    // calculate damages pure damage base on the power, attackingStat, and defendingStat
    // then times that by battleMoveEffectiveNess, weatherPowerMultipler and typeMultipler
-   int damage = totalDamageCalculations(calculatePureDamage(getPower(), attackingStat, defendingStat),
+   int damage = totalDamageCalculations(calculatePureDamage(getPower(), (double)attackingStat, (double)defendingStat),
       battleMoveEffectiveNess, weatherPowerMultipler, typeMultipler);
    oppPokemonStats->damageToHealth(damage);
    return damage;

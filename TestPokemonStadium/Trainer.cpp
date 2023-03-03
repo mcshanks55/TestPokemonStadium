@@ -16,7 +16,14 @@ PokemonStadium::Trainer::Trainer(ConsoleOutput *out, string id, string trainerNa
    this->name = trainerName;
    pokemonParty = {};
    battleParty = {};
-   pokemonSlotInBattle = 0;
+   // setting pokemon in battle empty
+   pokemonInBattleSlotA = 0;
+   pokemonInBattleSlotB = 0;
+   switchingPokemonOut = false;
+   // switchingPokemon: addd the first pokemon being switch out follow 
+   // by the pokemon that is being switch with
+   // Maxium Pokemon being switch out = 2
+   vector<size_t> switchingPokemon = {4};
 }
 
 // Destructor - destroyies all Pokemon in pokemonParty
@@ -71,12 +78,29 @@ PokemonStadium::Trainer::setBattleParty(vector<int> battleSlots) {
    }
 }
 
-// Gets the Pokemon at the front of the party queue
+// Gets the Pokemon current in battle (only use for single battle)
 PokemonStadium::PokemonCharacter *
 PokemonStadium::Trainer::getPokemonInBattle() {
-   return battleParty[pokemonSlotInBattle];
+   return battleParty[pokemonInBattleSlotA];
 }
 
+// Gets the Pokemon in slot A
+PokemonStadium::PokemonCharacter *
+PokemonStadium::Trainer::getPokemonAInBattle() {
+   return battleParty[pokemonInBattleSlotA];
+}
+
+// Gets the Pokemon in slot B
+PokemonStadium::PokemonCharacter *
+PokemonStadium::Trainer::getPokemonBInBattle() {
+   return battleParty[pokemonInBattleSlotB];
+}
+
+// reset switching pokemon out back to not active
+void
+PokemonStadium::Trainer::resetSwitchingPokemon() {
+   switchingPokemonOut = false;
+}
 // checks if the Pokemon in battle can be switch out with a pokemon in the
 // battle party. Returns true if its possible returns false if not
 bool 
@@ -87,7 +111,7 @@ PokemonStadium::Trainer::pickPokemonToSwitch(size_t battlePartySpot) {
       return false;
    }
    // if given number is the pokemon already out
-   else if(battlePartySpot == pokemonSlotInBattle){
+   else if(battlePartySpot == pokemonInBattleSlotA || battlePartySpot == pokemonInBattleSlotB){
       out->log("Pokemon is already out");
       return false;
    }
@@ -95,8 +119,10 @@ PokemonStadium::Trainer::pickPokemonToSwitch(size_t battlePartySpot) {
    else {
       // if Pokemon has not fainted it can be switchout
       // otherwise it cannot
-      if (isPokemonInSlotAbleToBattle(battlePartySpot))
-         return true;
+      if (isPokemonInSlotAbleToBattle(battlePartySpot)) {
+      switchingPokemonOut = true;
+      return true;
+      }
       else
          return false;
    }
@@ -104,15 +130,54 @@ PokemonStadium::Trainer::pickPokemonToSwitch(size_t battlePartySpot) {
 
 // switches out the pokemon in the battle with given Pokemon
 // battle spot in the battle party
+// Only use for Single Battles
 void
 PokemonStadium::Trainer::switchPokemon(size_t battlePartySpot) {
-   pokemonSlotInBattle = battlePartySpot;
+   pokemonInBattleSlotA = battlePartySpot;
+}
+
+// switches out the pokemon in the battle slot A with given Pokemon
+// battle spot in the battle party
+void
+PokemonStadium::Trainer::switchPokemonInSlotA(size_t battlePartySpot) {
+   pokemonInBattleSlotA = battlePartySpot;
+}
+
+// switches out the pokemon in the battle slot B with given Pokemon
+// battle spot in the battle party
+void
+PokemonStadium::Trainer::switchPokemonInSlotB(size_t battlePartySpot) {
+   pokemonInBattleSlotB = battlePartySpot;
+}
+
+// get move priority of the Pokemon in slot A
+int
+PokemonStadium::Trainer::getSlotAMovePriority() {
+   return slotAMovePriority;
+}
+
+// get move priority of the Pokemon in slot B
+int
+PokemonStadium::Trainer::getSlotBMovePriority() {
+   return slotAMovePriority;
+}
+
+// set move priority of the Pokemon in slot A
+void
+PokemonStadium::Trainer::setSlotAMovePriority(int priority) {
+   this->slotAMovePriority = priority;
+}
+
+// set move priority of the Pokemon in slot B
+void
+PokemonStadium::Trainer::setSlotBMovePriority(int priority) {
+   this->slotAMovePriority = priority;
 }
 
 // checks if the pokemon has fainted, if it has, remove
 // Pokemon from battle party and return true
 bool
-PokemonStadium::Trainer::pokemonOutHasFainted() {
+PokemonStadium::Trainer::hasPokemonOutHasFainted() {
    if (getPokemonInBattle()->pokemonFainted()) {
       out->log(name + " 's " + getPokemonInBattle()->getName()
          + " has fainted");

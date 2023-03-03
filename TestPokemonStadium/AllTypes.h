@@ -1,15 +1,10 @@
-/* All of the types: 
+/* All of the types:
 *   Bug, Dark, Dragon, Electric, Fairy, Fighting,
-*   Fire, Flying, Ghost, Grass, Ground, Ice,
+*   Fire, Flying, Ghost, Grass, Ground, Ice, Mage
 *   Normal, Poison, Psychic, Rock, Steel, Water
 */
 
 #include "Type.h"
-
-/* Types= {"Bug", "Dark", "Dragon", "Electric", "Fairy", "Fighting", "Fire", "Flying",
-           "Ghost", "Grass", "Ground", "Ice", "Normal", "Poison", "Psychic", 
-           "Rock", "Steel", "Water"};
-*/
 
 // None
 static const PokemonStadium::Type type_none = PokemonStadium::Type();
@@ -211,6 +206,16 @@ static const PokemonStadium::Type type_water = PokemonStadium::Type(
    {} // defensive no effect
 );
 
+// Mage
+static const PokemonStadium::Type type_mage = PokemonStadium::Type(
+   "Mage",
+   {"Fairy", "Fighting", "Ghost"}, // offensive super effective
+   {"Mage"}, // offensive not very effective
+   {"Dragon"}, // offensive no effect
+   {"Dark", "Dragon"}, // defensive super effective
+   {"Ghost", "Mage"}, // defensive not very effective 
+   {"Fairy"} // defensive no effect
+);
 
 //static const vector<PokemonStadium::Type> listAllTypes = {type_bug, type_dark, type_dragon,
 //                                         type_electric, type_fairy, type_fighting,
